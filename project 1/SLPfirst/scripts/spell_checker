@@ -1,0 +1,9 @@
+#!/bin/sh
+
+fstarcsort --sort_type=ilabel fsts/subV.fst fsts/subV.fst | fstcompose fsts/L.fst fsts/subv.fst fsts/S.fst
+fstrmepsilon fsts/S.fst fsts/S.fst
+fstdeterminize fsts/S.fst fsts/S.fst
+fstminimize fsts/S.fst fsts/S.fst
+fstdraw fsts/S.fst >fsts/SC.dot
+dot -Tpdf -ofsts/SC.pdf fsts/SC.dot
+xdg-open fsts/SC.pdf

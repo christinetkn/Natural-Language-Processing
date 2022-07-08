@@ -1,0 +1,7 @@
+#!/bin/sh
+
+python3 levenshtein.py
+fstcompile --isymbols=vocab/chars.syms --osymbols=vocab/chars.syms --keep_isymbols --keep_osymbols fsts/L.txt fsts/L.fst
+fstdraw fsts/L.fst >fsts/L.dot
+dot -Tpdf -ofsts/L.pdf fsts/L.dot
+#xdg-open fsts/L.pdf
